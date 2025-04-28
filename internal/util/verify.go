@@ -34,7 +34,7 @@ func Verify(username, password string) bool {
 	defer rows.Close()
 
 	if !rows.Next() {
-		log.Fatal("Could not find master username in db")
+		return false
 	}
 
 	var s_version, s_memory, s_time, s_threads, salt, master_hash string
