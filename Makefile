@@ -5,6 +5,7 @@ HELPERS = internal/cli/add_account.go \
 		  internal/util/decrypt_store.go \
 		  internal/util/encrypt.go \
 		  internal/util/encrypt_store.go \
+		  internal/util/get_credentials.go \
 		  internal/util/get_db.go \
 		  internal/util/pad.go \
 		  internal/util/verify.go

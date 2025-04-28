@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
 	"strings"
@@ -21,30 +22,19 @@ func main() {
 	case "init":
 		cli.Init()
 	case "add-account":
-		if argc < 3 {
-			log.Fatal("Not enough params")
-		}
-		cli.AddAccount(argv[2], argv[3])
-	case "verify":
-		if argc < 3 {
-			log.Fatal("Not enough params")
-		}
-		log.Println(util.Verify(argv[2], argv[3]))
+		master_username, master_password := util.GetCredentials()
+		cli.AddAccount(master_username, master_password)
+		fmt.Println("Account created successfully!")
 	case "add":
-		if argc < 6 {
+		if argc < 4 {
 			log.Fatal("Not enough params")
 		}
-		cli.Add(argv[2], argv[3], argv[4], argv[5], argv[6])
-	case "decrypt":
-		if argc < 3 {
-			log.Fatal("Not enough params")
-		}
-		log.Println(util.DecryptStore(argv[2], argv[3]))
+		master_username, master_password := util.GetCredentials()
+		cli.Add(master_username, master_password, argv[2], argv[3], argv[4])
+		fmt.Println("Added account " + argv[3] + " to service " + argv[2] + " successfully!")
 	case "list":
-		if argc < 3 {
-			log.Fatal("Not enough params")
-		}
-		cli.List(argv[2], argv[3])
+		master_username, master_password := util.GetCredentials()
+		cli.List(master_username, master_password)
 	default:
 		log.Fatal("Invalid parameter: " + argv[1] + "\n")
 	}

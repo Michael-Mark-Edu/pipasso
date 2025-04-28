@@ -14,6 +14,7 @@ func List(master_username, master_password string) {
 
 	var store map[string]map[string]string = util.DecryptStore(master_username, master_password)
 
+	fmt.Println()
 	for k1, v1 := range store {
 		fmt.Print(k1)
 		fmt.Println(":")
