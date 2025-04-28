@@ -1,11 +1,12 @@
 package main
 
 import (
-	"TODO/internal/cli"
-	"TODO/internal/util"
 	"log"
 	"os"
 	"strings"
+
+	"github.com/Michael-Mark-Edu/pipasso/internal/cli"
+	"github.com/Michael-Mark-Edu/pipasso/internal/util"
 )
 
 func main() {

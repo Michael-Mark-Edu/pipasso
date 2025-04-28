@@ -11,9 +11,9 @@ HELPERS = internal/cli/add_account.go \
 
 .PHONY: all, clean
 
-all: bin/client
+all: bin/pipasso
 
-bin/client: cmd/client/main.go $(HELPERS)
+bin/pipasso: cmd/client/main.go $(HELPERS)
 	go build -o $@ $<
 
 clean:

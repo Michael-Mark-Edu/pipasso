@@ -1,4 +1,4 @@
-module TODO
+module github.com/Michael-Mark-Edu/pipasso
 
 go 1.24.2
 
