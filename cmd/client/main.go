@@ -34,7 +34,7 @@ func main() {
 		fmt.Println("Added account " + argv[3] + " to service " + argv[2] + " successfully!")
 	case "list":
 		master_username, master_password := util.GetCredentials()
-		cli.List(master_username, master_password)
+		cli.List(master_username, master_password, argv[2:]...)
 	default:
 		log.Fatal("Invalid parameter: " + argv[1] + "\n")
 	}
