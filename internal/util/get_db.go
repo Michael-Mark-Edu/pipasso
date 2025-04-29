@@ -12,7 +12,7 @@ func GetDB() string {
 		log.Fatal(fmt.Sprintf("error: Could not find the user's home directory. %s", err))
 	}
 
-	pass_dir := db_dir + string(os.PathSeparator) + "temp_passman"
+	pass_dir := db_dir + string(os.PathSeparator) + ".pipasso"
 	fullname := pass_dir + string(os.PathSeparator) + "password.db"
 
 	return fullname
