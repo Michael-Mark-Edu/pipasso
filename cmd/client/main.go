@@ -14,16 +14,21 @@ func main() {
 	argv := os.Args
 	argc := len(argv[1:])
 
-	if argc <= 0 {
+	if argc <= 0 || (argc > 0 && argv[1] == "help") {
         fmt.Println("usage: pipasso <command>")
         fmt.Println()
         fmt.Println("Commands:")
+        fmt.Println("  help: Prints this message.")
         fmt.Println("  init: Initializes Pipasso for your user. Must be called before anything else.")
         fmt.Println("  add-account: Creates a new master account with a master username and password.")
         fmt.Println("  add <service> <username> <password>: Adds a username-password to a specified service.")
         fmt.Println("  remove <service> [username]: Removes either a service or a username-password store.")
         fmt.Println("  list [filters...]: Lists all username-password stores. If provided, search only in the specified services.")
-        os.Exit(1)
+        if (argc <= 0) {
+            os.Exit(1)
+        } else {
+            os.Exit(0)
+        }
 	}
 
 	switch strings.ToLower(argv[1]) {
