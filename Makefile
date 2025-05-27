@@ -2,6 +2,7 @@ HELPERS = internal/cli/add_account.go \
 		  internal/cli/add.go \
 		  internal/cli/init.go \
 		  internal/cli/list.go \
+		  internal/cli/remove.go \
 		  internal/util/decrypt_store.go \
 		  internal/util/encrypt.go \
 		  internal/util/encrypt_store.go \
@@ -10,7 +11,7 @@ HELPERS = internal/cli/add_account.go \
 		  internal/util/pad.go \
 		  internal/util/verify.go
 
-.PHONY: all, clean
+.PHONY: all clean
 
 all: bin/pipasso
 
