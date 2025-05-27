@@ -23,6 +23,7 @@ func main() {
         fmt.Println("  add-account: Creates a new master account with a master username and password.")
         fmt.Println("  add <service> <username> <password>: Adds a username-password to a specified service.")
         fmt.Println("  remove <service> [username]: Removes either a service or a username-password store.")
+        fmt.Println("  edit <service> <username> <password>: Edits a username-password to a specified service.")
         fmt.Println("  list [filters...]: Lists all username-password stores. If provided, search only in the specified services.")
         if (argc <= 0) {
             os.Exit(1)
@@ -57,6 +58,12 @@ func main() {
             username = argv[3]
         }
         cli.Remove(master_username, master_password, argv[2], username)
+    case "edit":
+		if argc < 4 {
+			log.Fatal("Not enough params")
+		}
+		master_username, master_password := util.GetCredentials()
+        cli.Edit(master_username, master_password, argv[2], argv[3], argv[4])
 	case "list":
 		master_username, master_password := util.GetCredentials()
 		cli.List(master_username, master_password, argv[2:]...)

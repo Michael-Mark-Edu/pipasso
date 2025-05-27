@@ -3,6 +3,7 @@ HELPERS = internal/cli/add_account.go \
 		  internal/cli/init.go \
 		  internal/cli/list.go \
 		  internal/cli/remove.go \
+		  internal/cli/edit.go \
 		  internal/util/decrypt_store.go \
 		  internal/util/encrypt.go \
 		  internal/util/encrypt_store.go \
