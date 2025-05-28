@@ -22,7 +22,7 @@ func GetCredentials() (master_username, master_password string) {
 	master_username = strings.Trim(master_username, "\n")
 
 	fmt.Print("Master password: ")
-	master_bytes, err := term.ReadPassword(syscall.Stdin)
+	master_bytes, err := term.ReadPassword(int(syscall.Stdin))
 	if err != nil {
 		log.Fatal(err)
 	}
