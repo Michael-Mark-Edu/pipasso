@@ -27,9 +27,10 @@ func AddAccount(master_username, master_password string) {
         master_salt,
         master_hash,
         decode_salt,
-        store
+        store,
+        remotes
     )
-    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
     `)
 	if err != nil {
 		log.Fatal(err)
@@ -50,8 +51,9 @@ func AddAccount(master_username, master_password string) {
 
 	store := []byte("{}")
 	encoded := util.Encrypt(store, key)
+	servers := encoded
 
-	_, err = stmt.Exec(master_username, argon2.Version, memory, time, threads, master_salt, hash, decode_salt, encoded)
+	_, err = stmt.Exec(master_username, argon2.Version, memory, time, threads, master_salt, hash, decode_salt, encoded, servers)
 	if err != nil {
 		log.Fatal(err)
 	}

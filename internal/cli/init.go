@@ -47,7 +47,8 @@ func Init() {
         master_hash BLOB(32) NOT NULL,
         decode_salt BLOB(32) NOT NULL,
 
-        store BLOB NOT NULL
+        store BLOB NOT NULL,
+        remotes BLOB NOT NULL
     )
     `)
 	if err != nil {
