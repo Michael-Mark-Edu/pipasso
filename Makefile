@@ -12,11 +12,18 @@ HELPERS = internal/cli/add_account.go \
 		  internal/util/pad.go \
 		  internal/util/verify.go
 
-.PHONY: all clean
+.PHONY: all client server clean
 
-all: bin/pipasso
+all: client server
+
+client: bin/pipasso
 
 bin/pipasso: cmd/client/main.go $(HELPERS)
+	go build -o $@ $<
+
+server: bin/pipasso-server
+
+bin/pipasso-server: cmd/server/main.go $(HELPER)
 	go build -o $@ $<
 
 clean:

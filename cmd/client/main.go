@@ -1,8 +1,10 @@
 package main
 
 import (
+	"crypto/tls"
 	"fmt"
 	"log"
+	"net/http"
 	"os"
 	"strings"
 
@@ -11,6 +13,14 @@ import (
 )
 
 func main() {
+	// I'm currently using self-signed TLS certs to make the web component of
+	// this project work. However, without the below line, this causes a runtime
+	// error. In an actual production environment, you'd want to delete this
+	// line
+	http.DefaultTransport.(*http.Transport).TLSClientConfig = &tls.Config{InsecureSkipVerify: true}
+
+	http.Get("https://localhost")
+
 	argv := os.Args
 	argc := len(argv[1:])
 
