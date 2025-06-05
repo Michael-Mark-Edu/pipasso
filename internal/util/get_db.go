@@ -1,7 +1,6 @@
 package util
 
 import (
-	"fmt"
 	"log"
 	"os"
 )
@@ -9,7 +8,7 @@ import (
 func GetDB() string {
 	db_dir, err := os.UserHomeDir()
 	if err != nil {
-		log.Fatal(fmt.Sprintf("error: Could not find the user's home directory. %s", err))
+		log.Fatal(err)
 	}
 
 	pass_dir := db_dir + string(os.PathSeparator) + ".pipasso"

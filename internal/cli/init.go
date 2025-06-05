@@ -20,7 +20,7 @@ func Init() {
 	}
 
 	err := os.Mkdir(pass_dir, 0700)
-	if err != nil {
+	if err != nil && !os.IsExist(err) {
 		log.Fatal(err)
 	}
 	_, err = os.Create(fullname)

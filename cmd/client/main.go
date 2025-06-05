@@ -19,7 +19,7 @@ func main() {
 	// line
 	http.DefaultTransport.(*http.Transport).TLSClientConfig = &tls.Config{InsecureSkipVerify: true}
 
-	http.Get("https://localhost")
+	http.Get(fmt.Sprintf("https://localhost:%d", 8888))
 
 	argv := os.Args
 	argc := len(argv[1:])
